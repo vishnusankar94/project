@@ -129,18 +129,16 @@ class compareImages
 		$i2 = $this->createImage($b);
 		
 		if(!$i1 || !$i2){return false;}
-		
-		$i1 = $this->resizeImage($i1,$a);
-		$i2 = $this->resizeImage($i2,$b);
+	
 		$cnt=0;
 $c=0;
-$width = imagesx($img);
-$height = imagesy($img);
+$width = imagesx($i1);
+$height = imagesy($i1);
 for($x = 0; $x < $width; $x++) {
     for($y = 0; $y < $height; $y++) {
         // pixel color at (x, y)
-       $color = imagecolorat($img, $x, $y);
-	   $color1 = imagecolorat($img1, $x, $y);
+       $color = imagecolorat($i1, $x, $y);
+	   $color1 = imagecolorat($i2, $x, $y);
 	   if($color==$color1)
 	   {$c=$c+1;}
 	   $cnt=$cnt+1;
